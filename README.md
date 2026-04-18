@@ -1,6 +1,6 @@
 # Humanizador
 
-Skill para Claude Code e OpenCode que remove marcas de escrita gerada por IA em textos em **português brasileiro**, deixando o resultado mais natural e humano no registro do Brasil.
+Skill multi-plataforma (Claude Code, OpenCode, OpenAI Codex, Cursor, GitHub Copilot, Cline, Roo Code, Warp) que remove marcas de escrita gerada por IA em textos em **português brasileiro**, deixando o resultado mais natural e humano no registro do Brasil.
 
 Esta skill é uma adaptação do projeto humanizer (https://github.com/blader/humanizer). Não é tradução literal: os padrões foram recalibrados a partir de textos de IA em PT-BR, e o guia original em inglês (baseado na Wikipedia) foi substituído por referências brasileiras.
 
@@ -33,6 +33,73 @@ O Warp pode usar o `WARP.md` deste repositório como orientação ao trabalhar n
     git clone https://github.com/profdorly/humanizador.git ~/.claude/skills/humanizador
 
 Depois invoque com `/humanizador` no Warp.
+
+### OpenAI Codex
+
+O Codex usa o mesmo padrão Agent Skills (agentskills.io). Instale globalmente ou por repositório:
+
+**Global (usuário):**
+
+    mkdir -p ~/.codex/skills
+    git clone https://github.com/profdorly/humanizador.git ~/.codex/skills/humanizador
+
+**Por repositório:**
+
+    mkdir -p .codex/skills
+    git clone https://github.com/profdorly/humanizador.git .codex/skills/humanizador
+
+> **Nota:** O suporte a skills no Codex pode estar atrás de feature flag. Se necessário, ative com `codex --enable skills`.
+
+### Cursor
+
+O Cursor usa skills em Markdown com o mesmo formato SKILL.md:
+
+    mkdir -p ~/.cursor/skills
+    git clone https://github.com/profdorly/humanizador.git ~/.cursor/skills/humanizador
+
+Ou use o comando `/create-skill` no Cursor para criar uma skill baseada no SKILL.md deste repositório.
+
+### GitHub Copilot (VS Code)
+
+O GitHub Copilot usa Agent Skills (padrão aberto agentskills.io):
+
+**Por projeto:**
+
+    mkdir -p .github/skills
+    cp SKILL.md .github/skills/humanizador.md
+
+**Global (usuário):**
+
+    mkdir -p ~/.copilot/skills
+    cp SKILL.md ~/.copilot/skills/humanizador.md
+
+Depois use `/skills` no chat do Copilot para configurar e ativar a skill.
+
+### Cline
+
+Habilite skills em Cline: Settings → Features → Enable Skills (experimental)
+
+    mkdir -p ~/.cline/skills
+    git clone https://github.com/profdorly/humanizador.git ~/.cline/skills/humanizador
+
+### Roo Code
+
+Roo Code suporta skills globais, por projeto e cross-agent:
+
+**Global:**
+
+    mkdir -p ~/.roo/skills
+    git clone https://github.com/profdorly/humanizador.git ~/.roo/skills/humanizador
+
+**Por projeto:**
+
+    mkdir -p .roo/skills
+    git clone https://github.com/profdorly/humanizador.git .roo/skills/humanizador
+
+**Cross-agent (compartilhado entre múltiplos agentes):**
+
+    mkdir -p ~/.agents/skills
+    git clone https://github.com/profdorly/humanizador.git ~/.agents/skills/humanizador
 
 ## Uso
 
