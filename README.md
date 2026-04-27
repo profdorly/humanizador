@@ -1,6 +1,6 @@
 # Humanizador
 
-Skill multi-plataforma (Claude Code, OpenCode, OpenAI Codex, Cursor, GitHub Copilot, Cline, Roo Code, Warp) que remove marcas de escrita gerada por IA em textos em **português brasileiro**, deixando o resultado mais natural e humano no registro do Brasil.
+Skill multi-plataforma (Claude Code, OpenCode, OpenAI Codex, Cursor, GitHub Copilot, Cline, Roo Code) que remove marcas de escrita gerada por IA em textos em **português brasileiro**, deixando o resultado mais natural e humano no registro do Brasil. Também funciona como assistente personalizado no **Gemini Gems** e **ChatGPT GPTs** — veja **[ASSISTANTS.md](ASSISTANTS.md)**.
 
 Esta skill é uma adaptação do projeto humanizer (https://github.com/blader/humanizer). Não é tradução literal: os padrões foram recalibrados a partir de textos de IA em PT-BR, e o guia original em inglês (baseado na Wikipedia) foi substituído por referências brasileiras.
 
@@ -24,15 +24,6 @@ Ou copie só o arquivo da skill, se já tem o repo clonado:
     git clone https://github.com/profdorly/humanizador.git ~/.config/opencode/skills/humanizador
 
 > **Nota:** o OpenCode também lê `~/.claude/skills/`, então um clone único em `~/.claude/skills/humanizador/` funciona para os dois.
-
-### Warp (warp.dev)
-
-O Warp pode usar o `WARP.md` deste repositório como orientação ao trabalhar no código. Para usar a skill no Warp, siga o fluxo padrão do Claude Code (o Warp usa o mesmo sistema de skills):
-
-    mkdir -p ~/.claude/skills
-    git clone https://github.com/profdorly/humanizador.git ~/.claude/skills/humanizador
-
-Depois invoque com `/humanizador` no Warp.
 
 ### OpenAI Codex
 
