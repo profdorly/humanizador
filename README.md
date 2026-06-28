@@ -97,7 +97,14 @@ Roo Code suporta skills globais, por projeto e cross-agent:
 ### Invocação direta
 
     /humanizador
-    [cole seu texto aqui]
+
+Se nenhum texto for passado, a skill pede o texto. Você também pode passar diretamente:
+
+    /humanizador [cole seu texto aqui]
+
+Ou apontar para um arquivo — a skill lê, humaniza e sobrescreve:
+
+    /humanizador caminho/para/arquivo.txt
 
 Ou peça em linguagem natural:
 
@@ -224,7 +231,9 @@ O `SKILL.md` traz ainda dois exemplos adicionais: um em registro **formal corpor
 
 ## Histórico de versões
 
-- **0.2.0** — Adicionada seção "Quando NÃO corrigir"; 3 Full Examples em registros diferentes (informal, formal, técnico); novos tells (ao invés de / em vez de, dêixis temporal vaga, quantificadores inflados, paralelismo forçado); Top 5 como ponteiros; exceções de gênero em Title Case e aspas curvas; seções em sentence case.
+- **1.0.1** — Frontmatter limpo (removidos campos não-padrão `license`, `compatibility`; `description` comprimida); `allowed-tools` reduzido a Read/Write/Edit; blocos TRIGGER/SKIP e seção Invocação adicionados ao corpo; Formato de saída movido para antes do Processo; auditoria final deduplicada.
+- **1.0.0** — Adicionado suporte a Gemini Gems e ChatGPT GPTs (ASSISTANTS.md); instalação documentada para OpenAI Codex, Cursor, GitHub Copilot, Cline e Roo Code.
+- **0.2.0** — Adicionada seção "Quando NÃO corrigir"; 3 exemplos completos em registros diferentes (informal, formal, técnico); novos tells (ao invés de / em vez de, dêixis temporal vaga, quantificadores inflados, paralelismo forçado); Top 5 como ponteiros; exceções de gênero em Title Case e aspas curvas.
 - **0.1.0** — Reescrita inicial em PT-BR a partir do `humanizer` v2.5.1 de Siqi Chen. Substituída base Wikipedia EN por padrões observados em textos de IA em PT-BR.
 
 ## Licença
