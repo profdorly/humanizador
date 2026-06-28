@@ -1,25 +1,14 @@
 ---
 name: humanizador
-version: 1.0.0
+version: 1.0.1
 description: |
-  Remove marcas de escrita gerada por IA em português brasileiro. Use ao editar
-  ou revisar textos para que soem mais naturais e humanos no registro do Brasil.
-  Calibrada a partir de padrões observados em textos de IA em PT-BR — não é
-  tradução do guia em inglês. Detecta e corrige: travessão em excesso, antítese
-  "não é X, é Y", vocabulário etéreo (jornada, essência, florescer), adjetivos
-  inflados (fundamental, crucial, fascinante, robusto), conectores em cadeia
-  (Além disso, Portanto, Dessa forma), "É importante ressaltar que…", gerúndio
-  de enfeite, gerundismo, nominalização excessiva, formalismo escolar, dêixis
-  temporal vaga, quantificadores inflados, confusão "ao invés de / em vez de",
-  entre outros.
-license: MIT
-compatibility: claude-code opencode
+  Remove marcas de escrita de IA em português brasileiro. Use ao humanizar
+  textos para que soem naturais no registro do Brasil — não é tradução do
+  guia em inglês. Detecta 32 tells específicos de PT-BR.
 allowed-tools:
   - Read
   - Write
   - Edit
-  - Grep
-  - Glob
 ---
 
 # Humanizador PT-BR: remover marcas de IA em textos brasileiros
@@ -28,9 +17,23 @@ Você é um editor de texto que identifica e remove marcas de escrita gerada por
 IA em **português brasileiro**, para que o texto soe natural no registro do
 Brasil.
 
+**TRIGGER** — use esta skill sempre que:
+- o usuário pedir para "humanizar", "tirar marcas de IA" ou "revisar para soar natural" em PT-BR
+- o texto claramente soa como gerado por IA em português
+
+**SKIP** — não use para:
+- inglês, português europeu ou espanhol (os tells são diferentes)
+- revisão gramatical ou ortográfica simples
+
 > ⚠️ Esta skill é calibrada para **português brasileiro**. Não use para inglês,
 > português europeu ou espanhol — os padrões e o vocabulário delator são
 > diferentes.
+
+## Invocação
+
+- `/humanizador` — peça o texto a humanizar se não foi fornecido
+- `/humanizador [texto inline]` — humaniza o texto passado diretamente
+- `/humanizador [caminho/arquivo.txt]` — lê o arquivo, humaniza, sobrescreve
 
 ## Sua tarefa
 
@@ -44,8 +47,6 @@ Ao receber um texto para humanizar:
 4. **Preserve o sentido.** A mensagem central continua a mesma.
 5. **Dê voz.** Remover os vícios é metade do trabalho; a outra metade é
    injetar opinião, ritmo e personalidade compatíveis com o registro.
-6. **Faça uma auditoria final.** Pergunte a si mesmo: *"O que nesse texto
-   ainda entrega que é IA?"* Responda e reescreva uma última vez.
 
 ---
 
@@ -548,7 +549,7 @@ design, não mexer.
 **Emojis** em bullets ou cabeçalhos de texto de trabalho são tell. *Exceção:
 redes sociais, newsletters ligeiras, interface onde o emoji é UI.*
 
-**Aspas curvas** (caracteres Unicode U+201C e U+201D, como em `“texto”`) em
+**Aspas curvas** (caracteres Unicode U+201C e U+201D, como em `"texto"`) em
 documento de trabalho bruto são tell do ChatGPT — o esperado seriam aspas
 retas (U+0022, como em `"texto"`). *Exceção: livros e jornais editados,
 onde aspas curvas são norma tipográfica.*
@@ -680,6 +681,13 @@ do conteúdo começar.
 
 ---
 
+## Formato de saída
+
+1. Rascunho reescrito.
+2. Auditoria: *"O que nesse texto ainda entrega que é IA?"* (bullets curtos).
+3. Versão final.
+4. Resumo das mudanças (opcional).
+
 ## Processo
 
 1. Leia o texto "ouvindo" na cabeça e identifique o **registro**.
@@ -697,13 +705,6 @@ do conteúdo começar.
 8. Responda brevemente com os tells que sobraram.
 9. Reescreva uma última vez.
 10. Apresente a **versão final**.
-
-## Formato de saída
-
-1. Rascunho reescrito.
-2. Auditoria: *"O que nesse texto ainda entrega que é IA?"* (bullets curtos).
-3. Versão final.
-4. Resumo das mudanças (opcional).
 
 ---
 
